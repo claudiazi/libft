@@ -9,6 +9,12 @@ int	ft_isascii(int	c);
 int	ft_isprint(int	c);
 size_t	ft_strlen(const char *s);
 void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void*	ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void*	ft_memmove(void *restrict dst, const void *restrict src, size_t n);
+size_t ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
+size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
+
 
 int	main(void)
 {
@@ -38,10 +44,48 @@ int	main(void)
 		printf("%s", "ft_strlen: Wrong! \n");
 
 	char str[50] = "GeeksForGeeks is for programming geeks.";
-  	if (ft_memset(str + 13, '.', 8*sizeof(char)) == memset(str + 13, '.', 8*sizeof(char)))
+	char str2[50] = "GeeksForGeeks is for programming geeks.";
+	if (ft_memset(str + 13, '.', 8*sizeof(char)) == memset(str + 13, '.', 8*sizeof(char)))
 		printf("%s", "ft_memset: Correct! \n");
 	else
 		printf("%s", "ft_memset: Wrong! \n");
-	printf("%s", str + 13);
+	ft_bzero(str + 5, 6);
+	bzero(str2 + 5, 6);
+	if (strcmp(str,str2) == 0)
+		printf("%s", "ft_bzero: Correct! \n");
+	else
+		printf("%s", "ft_bzero: Wrong! \n");
+	const char src[50] = "howareyouimfinethankyou";
+	char dest[50] = "Heloooo!!";
+	char dest2[50] = "Heloooo!!";
+	ft_memcpy(dest, src, strlen(src)+1);
+	memcpy(dest2, src, strlen(src)+1);
+	if (strcmp(dest,dest2) == 0)
+		printf("%s", "ft_memcpy: Correct! \n");
+	else
+		printf("%s", "ft_memcpy: Wrong! \n");
+	char str3[50] = "I am going from Delhi to Gorakhpur";
+	char str4[50] = "I am going from Delhi to Gorakhpur";
+	ft_memmove(str3 + 11, str3 + 5, 29);
+	memmove(str4 + 11, str4 + 5, 29);
+	if (strcmp(str3,str4) == 0)
+		printf("%s", "ft_memmove: Correct! \n");
+	else
+		printf("%s", "ft_memmove: Wrong! \n");
+
+	const char src3[50] = "howareyouimfinethankyou";
+	char dest3[50] = "Heloooo!!";
+	char dest4[50] = "Heloooo!!";
+	if (ft_strlcpy(dest3, src3, 5) == strlcpy(dest4, src3, 5) && strcmp(dest3, dest4) == 0)
+		printf("%s", "ft_strlcpy: Correct! \n");
+	else
+		printf("%s", "ft_strlcpy: Wrong! \n");
+	const char src5[50] = "howareyouimfinethankyou";
+	char dest5[50] = "Heloooo!!";
+	char dest6[50] = "Heloooo!!";
+	if (ft_strlcat(dest5, src5, 10) == strlcat(dest6, src5, 10) && strcmp(dest5, dest6) == 0)
+		printf("%s", "ft_strlcat: Correct! \n");
+	else
+		printf("%s", "ft_strlcat: Wrong! \n");
 	return (0);
 }
