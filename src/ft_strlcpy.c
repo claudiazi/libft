@@ -1,5 +1,4 @@
-#include <stdio.h>
-size_t	ft_strlen(const char *s);
+#include "../libft.h"
 size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
 /*copies up to dstsize - 1 characters from the string src to dst, NUL-terminating the result if dstsize is not 0, returns the length of src
  */
