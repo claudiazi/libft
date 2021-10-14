@@ -1,6 +1,8 @@
 #include "../libft.h"
 #include <ctype.h>
 #include <string.h>
+#include <xlocale.h>
+#include <stdlib.h>
 int	main(void)
 {
 	if (ft_isalpha(28) == isalpha(28) && ft_isalpha(125) == isalpha(125))
@@ -72,5 +74,50 @@ int	main(void)
 		printf("%s", "ft_strlcat: Correct! \n");
 	else
 		printf("%s", "ft_strlcat: Wrong! \n");
+
+	if (ft_toupper('a') == toupper('a') && ft_toupper('A') == toupper('A') && ft_toupper('.') == toupper('.'))
+		printf("%s", "ft_toupper: Correct! \n");
+	else
+		printf("%s", "ft_toupper: Wrong! \n");
+
+	if (ft_tolower('a') == tolower('a') && ft_tolower('A') == tolower('A') && ft_tolower('.') == tolower('.'))
+		printf("%s", "ft_tolower: Correct! \n");
+	else
+		printf("%s", "ft_tolower: Wrong! \n");
+
+	if(ft_strchr("abcd", 'b') == strchr("abcd", 'b') && ft_strchr("abcd", 'm') == strchr("abcd", 'm') && ft_strchr("abcd", '\0') == strchr("abcd", '\0'))
+		printf("%s", "ft_strchr: Correct! \n");
+	else
+		printf("%s", "ft_strchr: Wrong! \n");
+
+	if(ft_strrchr("abcd", 'b') == strrchr("abcd", 'b') && ft_strrchr("abcd", 'm') == strrchr("abcd", 'm') && ft_strrchr("abcd", '\0') == strrchr("abcd", '\0'))
+		printf("%s", "ft_strrchr: Correct! \n");
+	else
+		printf("%s", "ft_strrchr: Wrong! \n");
+
+	if(ft_strncmp("abcd", "abmd", 3) == strncmp("abcd", "abmd", 3) && ft_strncmp("abcd", "abmd", 5) == strncmp("abcd", "abmd", 5) && ft_strncmp("abcd", "", 5) == strncmp("abcd", "", 5) && ft_strncmp("", "abcd", 5) == strncmp("", "abcd", 5))
+		printf("%s", "ft_strncmp: Correct! \n");
+	else
+		printf("%s", "ft_strncmp: Wrong! \n");
+
+	if(ft_memchr("abcd", 'b', 3) == memchr("abcd", 'b', 3) && ft_memchr("abcd", 'b', 1) == memchr("abcd", 'b', 1) && ft_memchr("abcd", '\0', 3) == memchr("abcd", '\0', 3))
+		printf("%s", "ft_memchr: Correct! \n");
+	else
+		printf("%s", "ft_memchr: Wrong! \n");
+
+	if(ft_memcmp("abcd", "abcd", 4) == memcmp("abcd", "abcd", 4) && ft_memcmp("abcd", "abcegdsd", 5) == memcmp("abcd", "abcegdsd", 5) && ft_memcmp("", "", 0) == memcmp("", "", 0))
+		printf("%s", "ft_memcmp: Correct! \n");
+	else
+		printf("%s", "ft_memcmp: Wrong! \n");
+
+	if(ft_strnstr("aabcdfs", "abc", 5) == strnstr("aabcdfs", "abc", 5) && ft_strnstr("aabcdfs", "", 5) == strnstr("aabcdfs", "", 5) && ft_strnstr("aabcdfs", "acd", 5) == strnstr("aabcdfs", "acd", 5))
+		printf("%s", "ft_strnstr: Correct! \n");
+	else
+		printf("%s", "ft_strnstr: Wrong! \n");
+
+	if (ft_atoi(" 	+1234") == atoi(" 	+1234") && ft_atoi(" 	+-1234") == atoi(" 	+-1234") && ft_atoi(" 	-1234") == atoi(" 	-1234") && ft_atoi(" 	-abd") == atoi(" 	-abc"))
+		printf("%s", "ft_atoi: Correct! \n");
+	else
+		printf("%s", "ft_atoi: Wrong! \n");
 	return (0);
 }
