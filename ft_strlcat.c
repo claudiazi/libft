@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft.h"
 size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize)
 /*copies up to dstsize - 1 characters from the string src to dst, NUL-terminating the result if dstsize is not 0, returns the length of src
  */

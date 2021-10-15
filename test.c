@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft.h"
 #include <ctype.h>
 #include <string.h>
 #include <xlocale.h>
@@ -119,5 +119,16 @@ int	main(void)
 		printf("%s", "ft_atoi: Correct! \n");
 	else
 		printf("%s", "ft_atoi: Wrong! \n");
+
+	if (memcmp(ft_calloc(5,4), calloc(5,4), 20) == 0)
+		printf("%s", "ft_calloc: Correct! \n");
+	else
+		printf("%s", "ft_calloc: Wrong! \n");
+	
+	if (strcmp(ft_strdup("abcd"), strdup("abcd")) == 0)
+		printf("%s", "ft_strdup: Correct! \n");
+	else
+		printf("%s", "ft_strdup: Wrong! \n");
+
 	return (0);
 }

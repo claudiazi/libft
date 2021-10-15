@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft.h"
 int ft_strncmp(const char *s1, const char *s2, size_t n)
 /*compare strings then it compares both the strings character by character till n(if n <= length of smallest string) or till null character of smallest string
  */
