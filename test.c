@@ -142,10 +142,15 @@ int	main(void)
 	// printf("4: %s", ft_substr(test_str, 0 ,0));
 	// printf("5: %s", ft_substr(test_str, 400 ,20));
 
+	// printf("ft_strtrim: %s", ft_strtrim("abchugbabc", "abc"));
+	if (strcmp(ft_strtrim("abchugbabc", "abc"), "hug") == 0)
+        printf("%s", "ft_strtrim: Correct! \n");
+    else
+        printf("%s", "ft_strtrim: Wrong! \n");
 
-	printf("%s", ft_strjoin("abcgd", "hsdbd"));
-	
+	printf("%s", ft_strtrim("lorem ipsum dolor sit amet", "te"));
 
-
+	printf("final result: %s", ft_itoa(158));
 	return (0);
+
 }
