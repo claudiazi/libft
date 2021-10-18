@@ -1,38 +1,66 @@
 #include "libft.h"
-char	*ft_itoa(int n)
-/*The string representing the integer.  NULL if the allocation fails. */
+static char *ft_malloc_str(int n)
 {
-	int	len;
-	int	nbr;
-	char	*str;
-	int	i;
-	int	pow;
-	int	sign;
+	int sign;
+	int len;
+	int nbr;
+	char *str;
 
-	nbr = (n > 0) ? n : -n;
-	len = (n > 0) ? 1 : 2;
-	sign = (n > 0) ? 1 : -1;
-	pow = 10;
-	i = 0;
-	while (n /= 10)
-	{
+	sign = (n >= 0) ? 1 : -1;
+	len = (n >= 0) ? 1 : 2;
+	nbr = n * sign;
+	while (nbr /= 10)
 		len++;
-		pow = pow * 10;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == 0)
+		return (0);
+	if (sign == -1)
+		str[0] = '-';
+	str[len] = '\0';
+	return (str);
+}
+
+static	char *ft_convert_min_int()
+{
+	char *str;
+	char *min_int;
+	int i;
+
+	i = 0;
+	min_int = "-2147483648";
+	str = (char *) malloc(12 * sizeof(char));
+	if (str == 0)
+		return (0);
+	while (i < 11)
+	{
+		str[i] = min_int[i];
+		i++;
 	}
-	if (!(str = malloc((len + 1) * sizeof(char))))
-		return (NULL);
-	if (nbr * sign < 0)
-		str[i++] = '-';
-	while (pow /= 10)
-		str[i++] = ((nbr / pow) % 10) + '0';
 	str[i] = '\0';
 	return (str);
 }
 
-int	main(void)
+char	*ft_itoa(int n)
+/*The string representing the integer.  NULL if the allocation fails. */
 {
-	printf("final result: %s", ft_itoa(-158));
-	return (0);
-}
+	char	*str;
+	int	i;
+	int	pow;
+	int nbr;
 
-//#TODO: MIN_INT & MAX_INT
+	str = ft_malloc_str(n);
+	if (n == -2147483648)
+		return (ft_convert_min_int());
+	i = (n >= 0) ? 0 : 1;
+	n = (n >= 0) ? n : -n;
+	nbr = n;
+	pow = 1;
+	while (n /= 10)
+		pow = pow * 10;
+	while (pow > 0)
+	{
+		str[i++] = ((nbr / pow) % 10) + '0';
+		pow = pow / 10;
+	}
+	return (str);
+}

@@ -17,7 +17,7 @@ static size_t	ft_count_word(char const *s, char c)
 		while (s[i] == c && s[i] != '\0')
 			i++;
 	}
-	return (count + 1);
+	return (count);
 }
 
 static char	*ft_create_word(char const *s, char c)
@@ -90,21 +90,10 @@ char			**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	word_count = ft_count_word(s, c);
-	dst = (char **)malloc(sizeof(char *) * word_count);
+	dst = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (dst == 0)
 		return (0);
 	if (ft_create_array(dst, s, c) == -1)
 		return (0);
 	return (dst);
 }
-
-// int	main()
-// {
-// 	int		count = 0;
-// 	char	**str_split = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-// 	while (count < ft_count_word("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i'))
-// 	{
-// 		printf("%s\n", str_split[count]);
-// 		count++;
-// 	}
-// }
