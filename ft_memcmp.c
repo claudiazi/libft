@@ -5,7 +5,7 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	if (n == 0)
 		return (0);
-	while (n-- &&  *(unsigned char *)s1 != '\0')
+	while (n--)
 	{
 		if (*(unsigned char *)s1 > *(unsigned char *)s2)
 			return (1);
@@ -16,3 +16,9 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+// int	main()
+// {
+// 	printf("%d", ft_memcmp("", "test", 4));
+// 	return (0);
+// }
