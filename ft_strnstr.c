@@ -4,8 +4,8 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
      character are not searched.
 */
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -13,7 +13,7 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *) haystack);
 	while (len-- && haystack[i + j] != '\0')
 	{
-		while (haystack[i + j] == needle[j])
+		while (haystack[i + j] == needle[j] && i + j < len)
 		{
 			j++;
 			if (needle[j] == '\0')
@@ -26,25 +26,3 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (0);
 }
-
-
-
-
-
-//{
-//	int	i;
-//	size_t	len_needle;
-//
-//	if (0 == (needle_len = strnlen(needle, len)))
-//		return (char *)haystack;
-//
-//	for (i=0; i<=(int)(len-needle_len); i++)
-//	{
-//		if ((haystack[0] == needle[0]) &&
-//			(0 == strncmp(haystack, needle, needle_len)))
-//			return (char *)haystack;
-//
-//		haystack++;
-//	}
-//	return (0);
-//}

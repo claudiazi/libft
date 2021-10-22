@@ -5,6 +5,8 @@ char *ft_strrchr(const char *s, int c)
 	size_t	len_s;
 
 	len_s = ft_strlen(s);
+	if (c == '\0')
+		return ((char *)s + len_s);
 	s = s + len_s - 1;
 	while (len_s--)
 	{
