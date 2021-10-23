@@ -7,6 +7,6 @@ t_list	*ft_lstnew(void *content)
 	if (new == 0)
 		return (0);
 	new->content = content;
-	new->next = 0;
+	new->next = NULL;
 	return (new);
 }
