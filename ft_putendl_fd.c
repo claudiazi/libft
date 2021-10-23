@@ -4,6 +4,8 @@ void ft_putendl_fd(char *s, int fd)
  * (defined in the limits.h header file). If cnt is zero, write() simply returns 0 without attempting any other action. */
 /* File descriptor is integer that uniquely identifies an open file of the process. */
 {
+	if (!s)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

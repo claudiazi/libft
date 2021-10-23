@@ -7,6 +7,8 @@ The substring begins at index ’start’ and is ofmaximum size ’len’. */
 	int		i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	if (start > ft_strlen(s) - 1)
 	{
 		if (!(str = malloc((sizeof(char)))))
@@ -15,7 +17,7 @@ The substring begins at index ’start’ and is ofmaximum size ’len’. */
 		return (str);
 	}
     if (!(str = malloc((len + 1) * sizeof(char))))
-        return (NULL);
+        return (0);
 	s = s + start;
 	while (i < (int)len && *s)
 	{

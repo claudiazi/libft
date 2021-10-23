@@ -11,8 +11,7 @@ static char *ft_malloc_str(int n)
 	nbr = n * sign;
 	while (nbr /= 10)
 		len++;
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == 0)
+	if (!(str = (char *)malloc((len + 1) * sizeof(char))))
 		return (0);
 	if (sign == -1)
 		str[0] = '-';
@@ -28,8 +27,7 @@ static	char *ft_convert_min_int()
 
 	i = 0;
 	min_int = "-2147483648";
-	str = (char *) malloc(12 * sizeof(char));
-	if (str == 0)
+	if (!(str = (char *) malloc(12 * sizeof(char))))
 		return (0);
 	while (i < 11)
 	{
@@ -49,6 +47,8 @@ char	*ft_itoa(int n)
 	int nbr;
 
 	str = ft_malloc_str(n);
+	if (str == NULL)
+		return(0);
 	if (n == -2147483648)
 		return (ft_convert_min_int());
 	i = (n >= 0) ? 0 : 1;
