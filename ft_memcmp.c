@@ -3,22 +3,17 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 /* compares byte string s1 against byte string s2.  Both strings are assumed to be n bytes long.
  */
 {
-	if (n == 0)
-		return (0);
+	unsigned char *p_s1;
+	unsigned char *p_s2;
+
+	p_s1 = (unsigned char *)s1;
+	p_s2 = (unsigned char *)s2;
 	while (n--)
 	{
-		if (*(unsigned char *)s1 > *(unsigned char *)s2)
-			return (1);
-		if (*(unsigned char *)s1 < *(unsigned char *)s2)
-			return (-1);
-		s1++;
-		s2++;
+		if (*p_s1 != *p_s2)
+			return (*p_s1 - *p_s2);
+		p_s1++;
+		p_s2++;
 	}
 	return (0);
 }
-
-// int	main()
-// {
-// 	printf("%d", ft_memcmp("", "test", 4));
-// 	return (0);
-// }

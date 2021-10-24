@@ -44,13 +44,10 @@ static char	*ft_create_word(char const *s, char c)
 	return (word);
 }
 
-static void	ft_nfree(char **dst, int n)
+static void	ft_nfree(char **dst, size_t n)
 {
-	while (n > 0)
-	{
-		n--;
+	while (n--)
 		free(dst[n]);
-	}
 	free(dst);
 }
 

@@ -47,7 +47,7 @@ char	*ft_itoa(int n)
 	int nbr;
 
 	str = ft_malloc_str(n);
-	if (str == NULL)
+	if (str == 0)
 		return(0);
 	if (n == -2147483648)
 		return (ft_convert_min_int());

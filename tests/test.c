@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../libft.h"
 #include <ctype.h>
 #include <string.h>
 #include <xlocale.h>
@@ -124,25 +124,29 @@ int	main(void)
 		printf("%s", "ft_calloc: Correct! \n");
 	else
 		printf("%s", "ft_calloc: Wrong! \n");
-	
+
 	if (strcmp(ft_strdup("abcd"), strdup("abcd")) == 0)
 		printf("%s", "ft_strdup: Correct! \n");
 	else
 		printf("%s", "ft_strdup: Wrong! \n");
-	
+
 	if (strcmp(ft_substr("sdhrbch", 3, 3), "rbc"))
         printf("%s", "ft_substr: Correct! \n");
     else
         printf("%s", "ft_substr: Wrong! \n");
+	char *src = "/|\x12\xff\x09\0\x42\042\0\42|\\";
+	int size = 200;
+	printf("%s", (char *)memchr(src, '\0', size));
+	printf("%s", (char *)ft_memchr(src, '\0', size));
 
-	// char test_str[26] = "lorem ipsum dolor sit amet";
-	// printf("1: %s\n", ft_substr(test_str, 0 ,10));
-	// printf("2: %s", ft_substr(test_str, 7 ,10));
-	// printf("3: %s", ft_substr(test_str, 7 ,0));
-	// printf("4: %s", ft_substr(test_str, 0 ,0));
-	// printf("5: %s", ft_substr(test_str, 400 ,20));
+	 char test_str[26] = "lorem ipsum dolor sit amet";
+	 printf("1: %s\n", ft_substr(test_str, 0 ,10));
+	 printf("2: %s", ft_substr(test_str, 7 ,10));
+	 printf("3: %s", ft_substr(test_str, 7 ,0));
+	 printf("4: %s", ft_substr(test_str, 0 ,0));
+	 printf("5: %s", ft_substr(test_str, 400 ,20));
 
-	// printf("ft_strtrim: %s", ft_strtrim("abchugbabc", "abc"));
+	 printf("ft_strtrim: %s", ft_strtrim("abchugbabc", "abc"));
 	if (strcmp(ft_strtrim("abchugbabc", "abc"), "hug") == 0)
         printf("%s", "ft_strtrim: Correct! \n");
     else

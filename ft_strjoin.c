@@ -5,10 +5,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	total_len;
 
 	if (!s1 || !s2)
-		return (NULL);
+		return (0);
 	total_len = ft_strlen(s1) + ft_strlen(s2);
 	if (!(str = malloc((total_len + 1) * sizeof(char))))
-		return (NULL);
+		return (0);
 	while (*s1)
 	{
 		*str = *s1;

@@ -1,5 +1,6 @@
 #include "libft.h"
 int	ft_lstsize(t_list	*lst)
+/*question: do we have to create a t_list *next here? */
 {
 	int size;
 
@@ -11,5 +12,3 @@ int	ft_lstsize(t_list	*lst)
 	}
 	return (size);
 }
-
-/*question: do we have to create a t_list *next here? */

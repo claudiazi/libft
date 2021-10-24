@@ -4,27 +4,26 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 The substring begins at index ’start’ and is ofmaximum size ’len’. */
 {
 	char	*str;
-	int		i;
+	size_t 	len_s;
 
-	i = 0;
+	len_s = len;
 	if (!s)
 		return (0);
 	if (start > ft_strlen(s) - 1)
 	{
 		if (!(str = malloc((sizeof(char)))))
-       		return (NULL);
+       		return (0);
 		*str = '\0';
 		return (str);
 	}
     if (!(str = malloc((len + 1) * sizeof(char))))
         return (0);
 	s = s + start;
-	while (i < (int)len && *s)
+	while (len_s-- && *s)
 	{
 		*str = *s;
 		str++;
 		s++;
-		i++;
 	}
 	*str = '\0';
     return (str - len);
